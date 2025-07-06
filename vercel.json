@@ -2,18 +2,18 @@
     "version": 2,
     "builds": [
         {
-        "src": "src/app.py",
+        "src": "server.py",
         "use": "@vercel/python"
         }
     ],
     "routes": [
         {
         "src": "/api/(.*)",
-        "dest": "/src/app.py"
+        "dest": "/server.py"
         },
         {
         "src": "/webhooks/(.*)",
-        "dest": "/src/app.py"
+        "dest": "/server.py"
         }
     ]
 }
