@@ -1,19 +1,15 @@
 {
-    "version": 2,
-    "builds": [
-        {
-        "src": "server.py",
-        "use": "@vercel/python"
-        }
-    ],
-    "routes": [
-        {
-        "src": "/api/(.*)",
-        "dest": "/server.py"
-        },
-        {
-        "src": "/webhooks/(.*)",
-        "dest": "/server.py"
-        }
-    ]
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/src"
+    }
+  ],
+  "build": {
+    "env": {
+      "PIP_INSTALLER": "uv"
+    },
+    "pythonVersion": "3.12" 
+  },
+  "installCommand": "uv sync"
 }
